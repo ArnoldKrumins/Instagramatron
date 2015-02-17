@@ -10,9 +10,18 @@
 </head>
 <body ng-app="instagramatron" >
 
-<div class="container-fluid" ng-controller="InstagramFeedCtrl" ng-init="GetImages()">
-    <div class="row" >
-            <div image-viewer images="images" ></div>
+<div class="container-fluid" ng-controller="InstagramFeedCtrl">
+    <div class="row">
+
+        <div infinite-scroll="GetImages()" infinite-scroll-distance="2">
+            <div ng-repeat="image in images" class="col-xs-12 col-md-4">
+                <a href="{{image.images.standard_resolution.url}}" target="_blank"><img ng-src="{{image.images.standard_resolution.url}}" /></a>
+                <p>{{image.caption.text}}</p>
+            </div>
+        </div>
+
+
+            <!--<div image-viewer images="images" loadImages="GetImages()" ></div>-->
     </div>
 </div>
 
