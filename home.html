@@ -6,9 +6,15 @@
     <link rel="stylesheet" href="css/custom/site.css"/>
 
     <meta charset="UTF-8">
-    <title></title>
+    <title>Instagramatron</title>
 </head>
 <body ng-app="instagramatron" >
+
+<div class="container-fluid" ng-controller="InstagramFeedCtrl" ng-init="GetImages()">
+    <div class="row" >
+            <div image-viewer images="images" ></div>
+    </div>
+</div>
 
 </body>
 
@@ -18,7 +24,8 @@
 <script type="text/javascript" src="bower_components/gsap/src/minified/TweenMax.min.js" ></script>
 
 <script type="text/javascript" src="app/module.js" ></script>
-<script type="text/javascript" src="app/controllers/InstagramFeedController.js" ></script>
 <script type="text/javascript" src="app/services/InstagramFeedService.js" ></script>
+<script type="text/javascript" src="app/controllers/InstagramFeedController.js" ></script>
+<script type="text/javascript" src="app/directives/imageViewer.js" ></script>
 
 </html>
