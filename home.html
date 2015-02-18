@@ -13,13 +13,22 @@
 <div class="container-fluid" ng-controller="InstagramFeedCtrl">
     <div class="row">
 
-        <div infinite-scroll="GetImages()" infinite-scroll-distance="2">
-            <div ng-repeat="image in images" class="col-xs-12 col-md-4">
-                <a href="{{image.images.standard_resolution.url}}" target="_blank"><img ng-src="{{image.images.standard_resolution.url}}" /></a>
-                <p>{{image.caption.text}}</p>
-            </div>
-        </div>
+        <!--<div infinite-scroll="GetImages()" infinite-scroll-distance="2">-->
+            <!--<div ng-repeat="image in images" class="col-xs-12 col-md-4">-->
+                <!--<a href="{{image.images.standard_resolution.url}}" target="_blank"><img ng-src="{{image.images.standard_resolution.url}}" /></a>-->
+                <!--<p>{{image.caption.text}}</p>-->
+            <!--</div>-->
+        <!--</div>-->
 
+        <ul class="image-container" infinite-scroll="GetImages()" infinite-scroll-distance="2" infinite-scroll-disabled='busy'>
+            <li ng-repeat="image in images"><!--
+                --><div class="col-xs-12 col-md-4">
+                    <a href="{{image.images.standard_resolution.url}}" target="_blank"><img ng-src="{{image.images.standard_resolution.url}}" /></a>
+                </div>
+                <div style='clear: both;'></div>
+            </li>
+
+        </ul>
 
             <!--<div image-viewer images="images" loadImages="GetImages()" ></div>-->
     </div>
@@ -31,6 +40,8 @@
 <script type="text/javascript" src="bower_components/angular/angular.min.js" ></script>
 <script type="text/javascript" src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js" ></script>
 <script type="text/javascript" src="bower_components/gsap/src/minified/TweenMax.min.js" ></script>
+<script type="text/javascript" src="bower_components/spin.js/spin.js"></script>
+
 
 <script type="text/javascript" src="app/module.js" ></script>
 <script type="text/javascript" src="app/services/InstagramFeedService.js" ></script>

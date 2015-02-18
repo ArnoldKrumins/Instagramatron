@@ -11,14 +11,20 @@ $scope.busy = false;
 
     $scope.GetImages = function () {
 
-       // if($scope.busy) return;
-       // $scope.busy = true;
+       if($scope.busy) return;
+        $scope.busy = true;
+
         InstagramFeedService.getImages($scope.nextUrl).then(function (data) {
 
             $scope.meta = data.meta;
-            $scope.images = data.data;
-            $scope.nextUrl = data.pagination.next_url;
-          //  $scope.busy = false;
+            $scope.nextUrl = data.pagination.next_max_tag_id;
+
+            var items = data;
+            for (var i = 0; i < items.data.length; i++) {
+                $scope.images.push(items.data[i]);
+            }
+
+            $scope.busy = false;
         })
     };
 
