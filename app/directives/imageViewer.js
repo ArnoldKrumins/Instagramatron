@@ -11,41 +11,10 @@ app.directive('imageViewer',function(){
                       '<a href="{{image.images.thumbnail.url}}" target="_blank"><img ng-src="{{image.images.thumbnail.url}}" /></a>' +
                       '<p>{{image.caption.text}}</p>' +
                    '</div>'+
-                '</div>',
-       link:function(scope,element,attrs){
-
-            var s = scope.images;
-
-       }
-
-
-
+                '</div>'
 
     }
 
 })
 
 
-
-app.directive('imageOnLoad', function ($timeout, $rootScope) {
-    return {
-        restrict: 'A',
-        link: function (scope, element, attrs) {
-
-            if (scope.$first === true) {
-                $rootScope.$broadcast('startSpinner', null);
-            }
-
-            if (scope.$last === true) {
-
-                element.parent().css('display', 'block');
-
-                $timeout(function () {
-                    TweenMax.staggerFrom(element.parent().find('img'), 5, { scale: 0.8, opacity: 0, delay: 1, ease: Elastic.easeOut, force3D: true }, 0.2);
-                    $rootScope.$broadcast('stopSpinner', null);
-                })
-
-            }
-        }
-    };
-});

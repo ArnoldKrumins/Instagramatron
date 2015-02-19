@@ -4,6 +4,7 @@
 
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/custom/site.css"/>
+    <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css"/>
 
     <meta charset="UTF-8">
     <title>Instagramatron</title>
@@ -20,14 +21,22 @@
             <!--</div>-->
         <!--</div>-->
 
-        <ul class="image-container" infinite-scroll="GetImages()" infinite-scroll-distance="2" infinite-scroll-disabled='busy'>
+        <ul class="image-container" infinite-scroll="GetImages()" infinite-scroll-distance="2" infinite-scroll-disabled='busy' spinner="busy">
+
             <li ng-repeat="image in images"><!--
-                --><div class="col-xs-12 col-md-4">
-                    <a href="{{image.images.standard_resolution.url}}" target="_blank"><img ng-src="{{image.images.standard_resolution.url}}" /></a>
+                --><div class="col-xs-12 col-md-4" elastic-ease-out>
+                    <a href="{{image.images.standard_resolution.url}}" target="_blank"><img  class="inst-image box-shadow" ng-src="{{image.images.standard_resolution.url}}" /></a>
+                    <p class="likes box-shadow"><i class="fa fa-thumbs-up"></i>{{ image.likes.count }}</p>
+                    <p class="username shadow"></i><i class="fa fa-user"></i>{{ image.user.username}}</p>
+                    <div class="info-container">
+
+
+
+                    </div>
+
                 </div>
                 <div style='clear: both;'></div>
             </li>
-
         </ul>
 
             <!--<div image-viewer images="images" loadImages="GetImages()" ></div>-->
@@ -46,6 +55,9 @@
 <script type="text/javascript" src="app/module.js" ></script>
 <script type="text/javascript" src="app/services/InstagramFeedService.js" ></script>
 <script type="text/javascript" src="app/controllers/InstagramFeedController.js" ></script>
+
 <script type="text/javascript" src="app/directives/imageViewer.js" ></script>
+<script type="text/javascript" src="app/directives/ElasticEaseOut.js"></script>
+<script type="text/javascript" src="app/directives/Spinner.js"></script>
 
 </html>
