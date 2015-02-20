@@ -1,10 +1,11 @@
 /**
- * Created by arnoldkrumins on 16/02/15. Instagram Data API Service.
+ * Created by arnoldkrumins on 16/02/15.
+ * Instagram Data API Service.
  */
 app.factory('InstagramFeedService',function($http,$q,$log){
 
 
-    var baseUrl ="https://api.instagram.com/v1/tags/love/media/recent?client_id=c1302f417cda4e09968eaec958fe0ae2";
+    var baseUrl ="https://api.instagram.com/v1/tags/melbourne/media/recent?client_id=c1302f417cda4e09968eaec958fe0ae2&count=6";
     var callback ="&callback=JSON_CALLBACK";
 
     return{

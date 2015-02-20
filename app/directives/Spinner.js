@@ -1,5 +1,6 @@
 /**
  * Created by arnoldkrumins on 19/02/15.
+ * Used to display spinner when web page is processing.
  */
 app.directive('spinner', function () {
 
@@ -30,19 +31,19 @@ app.directive('spinner', function () {
         scope:{ busy: '=spinner'},
         link: function (scope,element,__) {
 
-
             scope.$watch('busy', function () {
 
                 if (scope.busy) {
-                        spinner = new Spinner(opts);
+
+                       spinner = new Spinner(opts);
                         spinner.spin();
                         element.append(spinner.el);
+                        scope.spinnerelement = element;
                 } else {
-                    spinner.stop();
+                    var elm = $(scope.spinnerelement)
+                    elm.find('.spinner').css('display', 'none')
                 }
             });
-
-
 
 
         }

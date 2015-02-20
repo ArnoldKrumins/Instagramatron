@@ -14,32 +14,25 @@
 <div class="container-fluid" ng-controller="InstagramFeedCtrl">
     <div class="row">
 
-        <!--<div infinite-scroll="GetImages()" infinite-scroll-distance="2">-->
-            <!--<div ng-repeat="image in images" class="col-xs-12 col-md-4">-->
-                <!--<a href="{{image.images.standard_resolution.url}}" target="_blank"><img ng-src="{{image.images.standard_resolution.url}}" /></a>-->
-                <!--<p>{{image.caption.text}}</p>-->
-            <!--</div>-->
-        <!--</div>-->
-
-        <ul class="image-container" infinite-scroll="GetImages()" infinite-scroll-distance="2" infinite-scroll-disabled='busy' spinner="busy">
-
+        <ul class="image-container" infinite-scroll="GetImages()" infinite-scroll-distance="5" infinite-scroll-disabled='busy' spinner="busy">
+            <div class="logo"></div>
             <li ng-repeat="image in images"><!--
                 --><div class="col-xs-12 col-md-4" elastic-ease-out>
-                    <a href="{{image.images.standard_resolution.url}}" target="_blank"><img  class="inst-image box-shadow" ng-src="{{image.images.standard_resolution.url}}" /></a>
-                    <p class="likes box-shadow"><i class="fa fa-thumbs-up"></i>{{ image.likes.count }}</p>
-                    <p class="username shadow"></i><i class="fa fa-user"></i>{{ image.user.username}}</p>
-                    <div class="info-container">
+                    <a href="{{image.images.standard_resolution.url}}" target="_blank"><img class="inst-image box-shadow" ng-src="{{image.images.standard_resolution.url}}" /></a>
+                    <p class="likes box-shadow rounded-corners orange-background"><i class="fa fa-thumbs-up"></i>{{ image.likes.count }}</p>
+                <a id="tag-button" tags-viewer href="#"><p pulse ng-class="{ hide: image.tags == 0 }" class="tags box-shadow rounded-corners orange-background"><i class="fa fa-tags"></i></i></p></a>
 
-
-
+                    <div class="tag-container">
+                        <span ng-repeat="tag in image.tags"  class="box-shadow rounded-corners">{{ tag }}</span>
                     </div>
+
+                <p class="username shadow"></i><i class="fa fa-user"></i>{{ image.user.username}}</p>
 
                 </div>
                 <div style='clear: both;'></div>
             </li>
         </ul>
 
-            <!--<div image-viewer images="images" loadImages="GetImages()" ></div>-->
     </div>
 </div>
 
@@ -47,7 +40,7 @@
 
 <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js" ></script>
 <script type="text/javascript" src="bower_components/angular/angular.min.js" ></script>
-<script type="text/javascript" src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js" ></script>
+<script type="text/javascript" src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js" ></script>
 <script type="text/javascript" src="bower_components/gsap/src/minified/TweenMax.min.js" ></script>
 <script type="text/javascript" src="bower_components/spin.js/spin.js"></script>
 
@@ -56,8 +49,9 @@
 <script type="text/javascript" src="app/services/InstagramFeedService.js" ></script>
 <script type="text/javascript" src="app/controllers/InstagramFeedController.js" ></script>
 
-<script type="text/javascript" src="app/directives/imageViewer.js" ></script>
+<script type="text/javascript" src="app/directives/tagsViewer.js" ></script>
 <script type="text/javascript" src="app/directives/ElasticEaseOut.js"></script>
 <script type="text/javascript" src="app/directives/Spinner.js"></script>
+<script type="text/javascript" src="app/directives/pulse.js"></script>
 
 </html>

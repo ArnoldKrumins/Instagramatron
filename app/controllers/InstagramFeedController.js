@@ -7,8 +7,9 @@ $scope.images =[]; // Array to store image data
 $scope.maxTagId; // The id used to retrieve next 20 images from Instagram API.
 $scope.meta; //Meta data used to determine if the call was successful.
 $scope.busy = false; //Flag used to prevent calling service while still processing request.
+$scope.spinnerelement;
 
-
+    /* Call InstragramFeedService to get images from Instagram API */
     $scope.GetImages = function () {
 
        if($scope.busy) return;

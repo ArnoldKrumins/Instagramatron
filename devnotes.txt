@@ -1,0 +1,29 @@
+Solution
+
+I developed the solution using AngularJS and GSAP,as they work really well together and they are a joy to work with!!
+No more lengthy unreadable multi vendor CSS transition code! I didn't want to use 'classic' pagination as it really doesn't
+work with touch devices. I used ngInfinityScroll, an Angular directive. All third party components where downloaded using Bower.
+Other than that I have used pretty much standard tooling. Bootstrap for the grid layout and FontAwesome for the icons.
+
+
+Issues:
+... queue Violins...
+
+1) I have been unable to test in IE as I have just updated to Yosemite and it's killed all my VMWare Windows virtual machines.
+I will have a look over the weekend when I get them (hopefully) back up and running. THen have a look at IE.
+2) There is a couple of small rendering issues. The tags information is not staying on top. I'll have to look. It's not as simple as changing the z-index.
+3) I've had to decrease the number of images coming back from the API as Safari cannot handle it! This appears to be an known issue with Safari and how it
+processes multiple images on its main thread. For future development I would use Modernizr to detect and change the image count based on the browser.
+
+
+Problems Encountered
+
+The biggest issue was getting recurring images back from the API. Using the returning API didn't work. I was getting 'No 'Access-Control-Allow-Origin' header
+is present on the requested resource'.  Instagram definately supports CORS. But again it may have been a Chrome local dev issue. I got round the issue by creating
+my own URL using the max tag id from the API. Perhaps also the location of the callback in the URL was not in correct position.
+
+Scrolling didn't work im Firefox. As a temporory measure I have given the container div a height. This may be a FX issue on Mac OS.
+
+
+
+
