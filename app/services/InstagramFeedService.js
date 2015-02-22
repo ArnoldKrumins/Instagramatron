@@ -5,7 +5,7 @@
 app.factory('InstagramFeedService',function($http,$q,$log){
 
 
-    var baseUrl ="https://api.instagram.com/v1/tags/melbourne/media/recent?client_id=c1302f417cda4e09968eaec958fe0ae2&count=6";
+    var baseUrl ="https://api.instagram.com/v1/tags/melbourne/media/recent?client_id=c1302f417cda4e09968eaec958fe0ae2";
     var callback ="&callback=JSON_CALLBACK";
 
     return{
@@ -15,7 +15,7 @@ app.factory('InstagramFeedService',function($http,$q,$log){
         /* Make call to Instragram API using Promise. For paganation get the next 20 images using the supplied 'max_tag_id' */
         getImages: function (maxTagId) {
 
-            var url = angular.isUndefined(maxTagId) ? this.apipath : baseUrl + "&max_tag_id=" + maxTagId + callback;
+            var url = angular.isUndefined(maxTagId) ? this.apipath : baseUrl + "&count=6&max_tag_id=" + maxTagId + callback;
 
             var deferred = $q.defer();
             $http.jsonp(url).success(function (data) {

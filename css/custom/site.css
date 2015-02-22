@@ -59,7 +59,6 @@ zoom: 1; /* For IE 7 */
 .image-container{
     position: relative;
     margin-left: 40px;
-    height:2000px; /* Required for firefox to scroll (This might be a firefox yosemite issue) */
 }
 
 .tag-container{
