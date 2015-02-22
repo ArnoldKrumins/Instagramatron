@@ -9,24 +9,30 @@
     <meta charset="UTF-8">
     <title>Instagramatron</title>
 </head>
-<body ng-app="instagramatron" >
+<body ng-app="instagramatron">
 
 <div class="container-fluid" ng-controller="InstagramFeedCtrl">
     <div class="row">
 
-        <ul class="image-container" infinite-scroll="GetImages()" infinite-scroll-distance="5" infinite-scroll-disabled='busy' spinner="busy">
+        <ul class="image-container" infinite-scroll="GetImages()" infinite-scroll-distance="5"
+            infinite-scroll-disabled='busy' spinner="busy">
             <div class="logo"></div>
             <li ng-repeat="image in images"><!--
-                --><div class="col-xs-12 col-md-4" elastic-ease-out>
-                    <a href="{{image.images.standard_resolution.url}}" target="_blank"><img class="inst-image box-shadow" ng-src="{{image.images.standard_resolution.url}}" /></a>
+                -->
+                <div class="img-container col-xs-12 col-md-4" elastic-ease-out>
+                    <a href="{{image.images.standard_resolution.url}}" target="_blank"><img
+                            class="inst-image box-shadow" ng-src="{{image.images.standard_resolution.url}}"/></a>
+
                     <p class="likes box-shadow rounded-corners orange-background"><i class="fa fa-thumbs-up"></i>{{ image.likes.count }}</p>
-                <a id="tag-button" tags-viewer href="#"><p pulse ng-class="{ hide: image.tags == 0 }" class="tags box-shadow rounded-corners orange-background"><i class="fa fa-tags"></i></i></p></a>
+                    <a id="tag-button" tags-viewer href="#"><p pulse ng-class="{ hide: image.tags === 0 }"
+                                                               class="tags box-shadow rounded-corners orange-background">
+                        <i class="fa fa-tags"></i></i></p></a>
 
                     <div class="tag-container">
-                        <span ng-repeat="tag in image.tags"  class="box-shadow rounded-corners">{{ tag }}</span>
+                        <span ng-repeat="tag in image.tags" class="box-shadow rounded-corners">{{ tag }}</span>
                     </div>
 
-                <p class="username shadow"></i><i class="fa fa-user"></i>{{ image.user.username}}</p>
+                    <p class="username shadow"></i><i class="fa fa-user"></i>{{ image.user.username}}</p>
 
                 </div>
                 <div style='clear: both;'></div>
@@ -38,18 +44,18 @@
 
 </body>
 
-<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js" ></script>
-<script type="text/javascript" src="bower_components/angular/angular.min.js" ></script>
-<script type="text/javascript" src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js" ></script>
-<script type="text/javascript" src="bower_components/gsap/src/minified/TweenMax.min.js" ></script>
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+<script type="text/javascript" src="bower_components/gsap/src/minified/TweenMax.min.js"></script>
 <script type="text/javascript" src="bower_components/spin.js/spin.js"></script>
 
 
-<script type="text/javascript" src="app/module.js" ></script>
-<script type="text/javascript" src="app/services/InstagramFeedService.js" ></script>
-<script type="text/javascript" src="app/controllers/InstagramFeedController.js" ></script>
+<script type="text/javascript" src="app/module.js"></script>
+<script type="text/javascript" src="app/services/InstagramFeedService.js"></script>
+<script type="text/javascript" src="app/controllers/InstagramFeedController.js"></script>
 
-<script type="text/javascript" src="app/directives/tagsViewer.js" ></script>
+<script type="text/javascript" src="app/directives/tagsViewer.js"></script>
 <script type="text/javascript" src="app/directives/ElasticEaseOut.js"></script>
 <script type="text/javascript" src="app/directives/Spinner.js"></script>
 <script type="text/javascript" src="app/directives/pulse.js"></script>

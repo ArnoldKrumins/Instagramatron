@@ -12,7 +12,7 @@ app.factory('InstagramFeedService',function($http,$q,$log){
 
         apipath:  baseUrl + callback,
 
-        /* Make call to Instragram API using Promise. For paganation get the next 20 images using the supplied 'max_tag_id' */
+        /* Make call to Instragram API using Promise. For pagination get the next 20 images using the supplied 'max_tag_id' */
         getImages: function (maxTagId) {
 
             var url = angular.isUndefined(maxTagId) ? this.apipath : baseUrl + "&count=6&max_tag_id=" + maxTagId + callback;

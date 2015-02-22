@@ -58,7 +58,10 @@ zoom: 1; /* For IE 7 */
 
 .image-container{
     position: relative;
-    margin-left: 40px;
+}
+
+.img-container{
+    margin: 20px;
 }
 
 .tag-container{

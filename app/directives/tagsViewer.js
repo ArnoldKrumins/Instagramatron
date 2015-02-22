@@ -17,7 +17,7 @@ app.directive('tagsViewer', function () {
 
             element.bind('mouseleave', function () {
 
-                TweenMax.fromTo (element.next(), 0.3, {opacity:1}, {opacity:0,display:'none'})
+               TweenMax.fromTo (element.next(), 0.3, {opacity:1}, {opacity:0,display:'none'})
 
             });
 
