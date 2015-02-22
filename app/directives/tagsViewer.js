@@ -10,14 +10,14 @@ app.directive('tagsViewer', function () {
 
             element.bind('mouseenter', function () {
 
-                TweenMax.fromTo (element.next(), 0.3, {opacity:0}, {opacity:1,display:'block'});
+                TweenMax.fromTo (element.next(), 0.8, {opacity:0}, {opacity:1,display:'block'});
 
             });
 
 
             element.bind('mouseleave', function () {
 
-               TweenMax.fromTo (element.next(), 0.3, {opacity:1}, {opacity:0,display:'none'})
+               TweenMax.fromTo (element.next(), 0.8, {opacity:1}, {opacity:0,display:'none'})
 
             });
 
